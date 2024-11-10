@@ -118,8 +118,8 @@ xv6.img: bootblock kernel
 mkfs: mkfs.c fs.h
 	gcc -Werror -Wall -o mkfs mkfs.c
 
-fs.img: mkfs *.txt
-	./mkfs fs.img *.txt
+fs.img: mkfs welcome.txt
+	./mkfs fs.img welcome.txt
 
 bootblock: bootasm.S bootmain.c
 	$(CC) $(CFLAGS) -fno-pic -O -nostdinc -I. -c bootmain.c
